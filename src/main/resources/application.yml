@@ -1,0 +1,16 @@
+server:
+  servlet:
+    context-path: "/api"
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: Test1234
+    url: jdbc:postgresql://localhost:5432/spring_todo
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+
