@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.Principal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +34,12 @@ public class ToDoService {
     public void createTodo(ToDoRequest request) throws Exception {
         User user = getUserFromContext();
 
-        ToDo todo = ToDo.builder().item(request.getItem()).status(ToDoStatus.valueOf(request.getStatus())).added(LocalDateTime.parse(request.getAdded())).user(user).build();
+        ToDo todo = ToDo.builder()
+                .item(request.getItem())
+                .status(ToDoStatus.valueOf(request.getStatus()))
+                .added(request.getAdded())
+                .user(user)
+                .build();
         toDoRepository.save(todo);
 
     }

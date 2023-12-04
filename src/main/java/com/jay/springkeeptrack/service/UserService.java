@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -37,9 +38,15 @@ public class UserService implements UserDetailsService {
         userRepository.save(newUser);
     }
 
+    public User retriveUserByEmail(String username) throws UsernameNotFoundException {
+        return userRepository.findByEmail(username).orElseThrow();
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(username).orElseThrow();
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getAuthorities());
+        Optional<User> user = userRepository.findByEmail(username);
+        if(user.isEmpty())
+            throw new UsernameNotFoundException("Invalid Credentials");
+        return new org.springframework.security.core.userdetails.User(user.get().getUsername(), user.get().getPassword(), user.get().getAuthorities());
     }
 }

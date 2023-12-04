@@ -1,8 +1,6 @@
 package com.jay.springkeeptrack.config;
 
-import com.jay.springkeeptrack.controllers.ErrorResponse;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
+import com.jay.springkeeptrack.controllers.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

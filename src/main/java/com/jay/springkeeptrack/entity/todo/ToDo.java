@@ -1,5 +1,6 @@
 package com.jay.springkeeptrack.entity.todo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jay.springkeeptrack.entity.user.User;
 import jakarta.persistence.*;
@@ -10,8 +11,10 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity(name="todos")
@@ -30,7 +33,8 @@ public class ToDo {
     private String item;
 
     @Column(name="added")
-    private LocalDateTime added;
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE_TIME)
+    private String added;
 
     @Column(name="status")
     @Enumerated(EnumType.STRING)

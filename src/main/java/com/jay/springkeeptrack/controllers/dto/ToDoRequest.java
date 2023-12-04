@@ -12,7 +12,7 @@ import java.util.Date;
 public class ToDoRequest {
     @NotBlank(message="item must not be blank")
     private String item;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @NotBlank(message = "added must not be blank")
     private String added;
     @NotBlank(message = "status must not be blank")

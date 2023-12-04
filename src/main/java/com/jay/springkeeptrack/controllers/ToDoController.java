@@ -16,6 +16,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@CrossOrigin
 @RequestMapping(path="/todos")
 public class ToDoController {
 
