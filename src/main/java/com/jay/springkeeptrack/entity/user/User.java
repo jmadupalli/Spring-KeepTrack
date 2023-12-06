@@ -39,6 +39,7 @@ public class User implements UserDetails {
     private String password;
 
     @Column(name="enabled")
+    @Builder.Default
     private Boolean enabled = true;
 
     @Enumerated(EnumType.STRING)

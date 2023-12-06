@@ -4,6 +4,7 @@ import com.jay.springkeeptrack.entity.user.Role;
 import com.jay.springkeeptrack.entity.user.UserRepository;
 import com.jay.springkeeptrack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -25,6 +26,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@EnableCaching
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
